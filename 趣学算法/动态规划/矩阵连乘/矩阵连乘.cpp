@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #define MAX 100
+//声明全局变量 
 int n;
 int p[MAX];
 int m[MAX][MAX],s[MAX][MAX];
