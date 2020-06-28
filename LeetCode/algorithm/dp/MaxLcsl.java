@@ -10,7 +10,7 @@ public class MaxLcsl {
         String str1 = input.next();
         String str2 = input.next();
         LCSL lcsl = new LCSL(str1, str2);
-        //调用方法求最长公共子序列，仔细思考
+        //调用方法求最长公共子序列
         lcsl.maxLcsl();
         System.out.println("最长公共子序列长度为：" + lcsl.c[lcsl.len1][lcsl.len2]);
         System.out.println("最长公共子序列为：");
