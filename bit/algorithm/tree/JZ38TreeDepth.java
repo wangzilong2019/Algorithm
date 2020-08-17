@@ -1,5 +1,8 @@
 package bit.algorithm.tree;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class JZ38TreeDepth {
     /**
      * 输入一棵二叉树，求该树的深度。
@@ -41,5 +44,40 @@ public class JZ38TreeDepth {
         }
         treeDepthHelper(root.left, depth + 1, max);
         treeDepthHelper(root.right, depth + 1, max);
+    }
+
+    /**
+     * 采用层状遍历
+     * @param root
+     * @return
+     */
+    public int TreeDepth3(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        //创建一个队列，队列中永远只保存一层节点
+        Deque<TreeNode> queue = new LinkedList<TreeNode>();
+        //根元素入队
+        queue.add(root);
+        int depth = 0;
+        while (!queue.isEmpty()) {
+            //层状遍历
+            int size = queue.size();
+            //统计层数
+            depth++;
+            for (int i = 0; i < size; i++) {
+                //队头元素出队列
+                TreeNode node = queue.pop();
+                //判断左右子树是非非空
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+
+        }
+        return depth;
     }
 }
