@@ -8,7 +8,7 @@ import java.util.Map;
 public class L17LetterCombinations {
 
     //创建一个集合
-    Map<Character, String> hashMap = new HashMap<>();
+    static Map<Character, String> hashMap = new HashMap<>();
 
     /**
      * 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。
@@ -20,7 +20,7 @@ public class L17LetterCombinations {
      * @param digits
      * @return
      */
-    public List<String> letterCombinations(String digits) {
+    public static List<String> letterCombinations(String digits) {
 
         List<String> res = new ArrayList<>();
         if (digits == null || digits.length() == 0) {
@@ -36,11 +36,13 @@ public class L17LetterCombinations {
         hashMap.put('8', "tuv");
         hashMap.put('9', "wxyz");
 
+        //数字字符串、结果集合、初识空串、开始索引
         dfs(digits, res, "", 0);
         return res;
     }
 
-    public void dfs(String digits, List<String> res, String curStr, int digitIdx) {
+    public static void dfs(String digits, List<String> res, String curStr, int digitIdx) {
+        //遍历完数字字符找到一个结果放入结果集中
         if (digitIdx == digits.length()) {
             res.add(curStr);
             return;
@@ -52,5 +54,10 @@ public class L17LetterCombinations {
         for (int i = 0; i < strMap.length(); i++) {
             dfs(digits, res, curStr + digits.charAt(i), digitIdx+1);
         }
+    }
+
+    public static void main(String[] args) {
+        List<String> res = letterCombinations("234");
+        System.out.println(res);
     }
 }
