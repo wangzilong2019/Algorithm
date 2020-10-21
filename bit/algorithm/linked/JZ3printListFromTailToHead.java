@@ -8,6 +8,7 @@ public class JZ3printListFromTailToHead {
 
     /**
      *  逆序打印链表
+     *  逆序首先要想到先进后出即为栈
      */
     ArrayList<Integer> newList = new ArrayList<>();
     public List<Integer> printListFromTailToHead2(ListNode listNode) {
