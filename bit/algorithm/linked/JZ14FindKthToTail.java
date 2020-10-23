@@ -32,5 +32,35 @@ public class JZ14FindKthToTail {
         //此种判断链表长度是否大于5
         return k > 0 ? null : rear;
     }
+
+    /**
+     * 单指针法，先求出总，正向走
+     * @param head
+     * @param k
+     * @return
+     */
+    public ListNode FindKthToTail2(ListNode head,int k){
+        if (head == null || k < 0) {
+            return head;
+        }
+        //记录总节点数
+        int count = 0;
+        ListNode temp = head;
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+        if (k > count) {
+            return null;
+        }
+        int n = count - k;
+        ListNode t = head;
+        while (n-- != 0) {
+            t = t.next;
+        }
+        return n > 0 ? null : t;
+    }
+
+
 }
 
